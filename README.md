@@ -143,25 +143,7 @@ curl -X POST http://localhost:8000/predict -F "file=@inspection.jpg"
 }
 ```
 
-## Limitations and future work
 
-- A public close-up dataset does not represent every material, camera, weather, or lighting condition; validate on site-specific data.
-- A random image split may leak near-duplicate texture patterns. Group by structure/site where metadata permits.
-- Classification localises neither crack geometry nor severity. Add segmentation or detection with calibrated uncertainty.
-- This is a Digital Twin-style component view, not a full BIM or LiDAR Digital Twin.
-- Asset selection is manual; the model does not infer whether an image belongs to the roof, floor, or a particular wall.
-- Inspection history is React session state only; it resets on refresh and is not shared between users or devices.
-- The contour overlay is supporting visual evidence, not pixel-accurate crack segmentation.
-- An industrial version could integrate drone imagery, IFC/BIM assets, LiDAR, maintenance history, cloud storage, and persistent asset records.
-- Production work needs drift monitoring, model/version promotion, security controls, accessibility testing, and human review thresholds.
-- Connect results to IFC/BIM or geospatial asset records; add LiDAR only where its 3D evidence solves a defined need.
-
-## Suggested CV bullets
-
-- Built an end-to-end AI-assisted infrastructure inspection prototype using OpenCV, PyTorch ResNet18, FastAPI, and React/TypeScript.
-- Implemented model validation with precision, recall, F1, confusion matrices, MLflow experiment tracking, and reproducible model artifacts.
-- Translated computer-vision predictions into Digital Twin-style component health, risk tiers, recommended engineering actions, and inspection reports.
-- Delivered an interpretable decision-support dashboard with OpenCV evidence overlays, local inspection history, Docker Compose, and GitHub Actions CI.
 
 ## Repository map
 
