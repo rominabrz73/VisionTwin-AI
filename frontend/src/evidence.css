@@ -1,0 +1,23 @@
+.evidence-flow {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr;
+  margin-top: 25px;
+}
+
+.evidence-stage { margin: 0; }
+.evidence-stage > div { background: #19201f; height: 190px; overflow: hidden; position: relative; }
+.evidence-stage img { display: block; height: 100%; object-fit: cover; width: 100%; }
+.evidence-stage span { background: #17201ed9; color: #fff; font: 7px 'Space Mono'; left: 9px; letter-spacing: .08em; padding: 6px 8px; position: absolute; text-transform: uppercase; top: 9px; }
+.evidence-stage figcaption { font: 700 9px 'Space Mono'; letter-spacing: .08em; margin-top: 9px; text-transform: uppercase; }
+.flow-arrow { color: #ef5d3e; font: 20px 'Space Mono'; text-align: center; }
+.evidence-summary { align-items: end; display: grid; gap: 30px; grid-template-columns: 1fr 260px; margin-top: 23px; }
+.evidence-summary .evidence-row { padding: 12px 0; }
+.evidence-summary .report-button { align-self: end; }
+
+@media (max-width: 900px) {
+  .evidence-flow { grid-template-columns: 1fr; }
+  .flow-arrow { transform: rotate(90deg); }
+  .evidence-summary { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+node_modules/
+dist/
+mlruns/
+data/
+models/*.pt
+reports/*.png
+reports/*.json
+reports/*.txt
+!models/.gitkeep
+!reports/.gitkeep
+.env
+.DS_Store
