@@ -1,6 +1,8 @@
 # VisionTwin AI
 
 An AI-assisted infrastructure inspection and Digital Twin-style **decision-support prototype**. Upload a surface image, run explainable OpenCV processing and ResNet18 classification, associate the result with an asset component, and turn it into a risk level, health score, recommended action, inspection history, and downloadable engineering summary.
+<img width="1895" height="866" alt="image" src="https://github.com/user-attachments/assets/2ad06a4f-62b5-4a9d-b409-3cb5a5f495a6" />
+
 
 > **Scope:** this is a Digital Twin-style concept demonstration—not a full BIM, LiDAR, structural assessment, or safety certification system.
 
