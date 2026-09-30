@@ -5,8 +5,12 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import torch
-from sklearn.metrics import (ConfusionMatrixDisplay, accuracy_score,
-                             classification_report, precision_recall_fscore_support)
+from sklearn.metrics import (
+    ConfusionMatrixDisplay,
+    accuracy_score,
+    classification_report,
+    precision_recall_fscore_support,
+)
 
 
 def evaluate_model(model, data_loader, device, report_dir: Path) -> dict[str, float]:
