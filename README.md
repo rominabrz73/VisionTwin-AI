@@ -88,6 +88,11 @@ data/
 ```
 
 Keep `data/` out of Git. A simple 80/20 stratified split is sufficient for this demonstration. The folder names are intentional: `ImageFolder` maps `crack` to class 0 and `no_crack` to class 1.
+A helper script does the split for you. Point `--src` at the folder that contains the `Positive` and `Negative` folders:
+
+```bash
+python split_data.py --src "path/to/folder"
+```
 
 ## Train and track an experiment
 
@@ -100,13 +105,24 @@ Training freezes the pretrained ResNet18 feature extractor and learns a two-outp
 
 ## Model validation metrics
 
-The validation step calculates accuracy, precision, recall, and F1-score. It also creates:
+Measured on 8,000 held-out validation images (4,000 per class) after 3 epochs with a frozen ResNet18 backbone and an 80/20 stratified split (seed 42). The `crack` class is treated as the positive class.
 
-- `reports/metrics.json`
-- `reports/classification_report.txt`
-- `reports/confusion_matrix.png`
+| Metric (crack class) | Value |
+|---|---|
+| Accuracy | 99.54% |
+| Precision | 99.87% |
+| Recall | 99.20% |
+| F1-score | 99.54% |
 
-No headline metrics are claimed in this repository because results depend on the exact split and training run. After training, record the MLflow run ID and replace this paragraph with your measured holdout results. For safety-oriented inspection, discuss recall for the `crack` class alongside false negatives—not accuracy alone.
+![Confusion matrix](docs/confusion_matrix.png)
+
+Confusion matrix: 3,968 true positives, 32 false negatives, 5 false positives, 3,995 true negatives.
+
+For a safety-oriented inspection tool the important number is the 32 missed cracks, which is higher than the 5 false alarms. A lower decision threshold would trade a few extra false alarms for fewer missed cracks, which is the right direction when a human reviews flagged items.
+
+**Caveats:** this public dataset is clean and homogeneous, so these results demonstrate the pipeline rather than real-world performance. Random image-level splitting can also place near-identical crops in both train and validation sets, which may inflate scores. There is no separate test set.
+
+The validation step also writes `reports/metrics.json`, `reports/classification_report.txt` and `reports/confusion_matrix.png` (Git-ignored; a copy of the matrix is stored in `docs/`).
 
 ## OpenCV pipeline
 
